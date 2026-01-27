@@ -1,0 +1,29 @@
+[
+  {
+    "id": "ig-001",
+    "title": "Instagram Puzzle #1",
+    "imageUrl": "https://via.placeholder.com/600x600/387a3d/ffffff?text=Puzzle+1",
+    "caption": "Can you solve this puzzle? Look closely at the image and find the hidden word!",
+    "answer": "example answer",
+    "instagramUrl": "https://www.instagram.com/p/YOUR_POST_ID/",
+    "datePublished": "2026-01-20"
+  },
+  {
+    "id": "ig-002",
+    "title": "Instagram Puzzle #2",
+    "imageUrl": "https://via.placeholder.com/600x600/387a3d/ffffff?text=Puzzle+2",
+    "caption": "Another brain teaser for you! What's the pattern here?",
+    "answer": "pattern",
+    "instagramUrl": "https://www.instagram.com/p/YOUR_POST_ID/",
+    "datePublished": "2026-01-18"
+  },
+  {
+    "id": "ig-003",
+    "title": "Instagram Puzzle #3",
+    "imageUrl": "https://via.placeholder.com/600x600/387a3d/ffffff?text=Puzzle+3",
+    "caption": "Weekend puzzle challenge! Can you crack the code?",
+    "answer": "solution",
+    "instagramUrl": "https://www.instagram.com/p/YOUR_POST_ID/",
+    "datePublished": "2026-01-15"
+  }
+]

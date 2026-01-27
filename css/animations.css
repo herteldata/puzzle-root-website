@@ -1,0 +1,175 @@
+/* ===================================
+   Puzzle Root - Animations
+   Celebration effects for solving puzzles
+   =================================== */
+
+/* Confetti Animation */
+@keyframes confetti-fall {
+    0% {
+        transform: translateY(-100vh) rotate(0deg);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(100vh) rotate(720deg);
+        opacity: 0;
+    }
+}
+
+/* Success Pulse */
+@keyframes success-pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* Bounce In */
+@keyframes bounce-in {
+    0% {
+        transform: scale(0);
+        opacity: 0;
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+/* Shake (for errors) */
+@keyframes shake {
+    0%, 100% {
+        transform: translateX(0);
+    }
+    10%, 30%, 50%, 70%, 90% {
+        transform: translateX(-5px);
+    }
+    20%, 40%, 60%, 80% {
+        transform: translateX(5px);
+    }
+}
+
+/* Fade In */
+@keyframes fade-in {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Celebration Container */
+.celebration-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 9999;
+    overflow: hidden;
+}
+
+/* Confetti Pieces */
+.confetti {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    animation: confetti-fall 3s linear forwards;
+}
+
+.confetti:nth-child(odd) {
+    background-color: rgb(56, 122, 61); /* Brand Green */
+}
+
+.confetti:nth-child(even) {
+    background-color: #f39c12; /* Amber */
+}
+
+.confetti:nth-child(3n) {
+    background-color: #1a2238; /* Navy */
+}
+
+/* Applied to puzzle card when solved */
+.puzzle-card.just-solved {
+    animation: success-pulse 0.6s ease-in-out;
+}
+
+/* Applied to solved answer display */
+.puzzle-solved {
+    animation: bounce-in 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+/* Applied to error feedback */
+.feedback-message.error {
+    animation: shake 0.5s ease-in-out;
+}
+
+/* Applied to success feedback */
+.feedback-message.success {
+    animation: fade-in 0.3s ease-out;
+}
+
+/* Applied to newly loaded puzzle cards */
+.puzzle-card.fade-in {
+    animation: fade-in 0.5s ease-out;
+}
+
+/* Stagger animation delays for multiple cards */
+.puzzle-card:nth-child(1) { animation-delay: 0s; }
+.puzzle-card:nth-child(2) { animation-delay: 0.1s; }
+.puzzle-card:nth-child(3) { animation-delay: 0.2s; }
+.puzzle-card:nth-child(4) { animation-delay: 0.3s; }
+.puzzle-card:nth-child(5) { animation-delay: 0.4s; }
+.puzzle-card:nth-child(6) { animation-delay: 0.5s; }
+
+/* Success Checkmark Animation */
+@keyframes checkmark-draw {
+    0% {
+        stroke-dashoffset: 50;
+    }
+    100% {
+        stroke-dashoffset: 0;
+    }
+}
+
+.checkmark-svg {
+    stroke-dasharray: 50;
+    stroke-dashoffset: 50;
+    animation: checkmark-draw 0.5s ease-out forwards;
+}
+
+/* Glow effect for solved badge */
+@keyframes glow {
+    0%, 100% {
+        box-shadow: 0 0 5px rgba(56, 122, 61, 0.5);
+    }
+    50% {
+        box-shadow: 0 0 20px rgba(56, 122, 61, 0.8);
+    }
+}
+
+.solved-badge {
+    animation: glow 2s ease-in-out infinite;
+}
+
+/* Reduce motion for accessibility */
+@media (prefers-reduced-motion: reduce) {
+    .confetti,
+    .puzzle-card.just-solved,
+    .puzzle-solved,
+    .feedback-message,
+    .solved-badge {
+        animation: none !important;
+    }
+}

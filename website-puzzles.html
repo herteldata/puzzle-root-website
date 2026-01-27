@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Exclusive website puzzles from Puzzle Root. Unique brain teasers you won't find anywhere else.">
+    <meta name="keywords" content="puzzles, brain teasers, word puzzles, logic puzzles, exclusive puzzles">
+
+    <title>Website Puzzles - Puzzle Root</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/animations.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" role="navigation" aria-label="Main navigation">
+        <div class="nav-container">
+            <a href="/" class="logo-link">
+                <img src="/images/brand/logo.png" alt="Puzzle Root Logo" class="logo">
+            </a>
+
+            <button class="hamburger" aria-label="Toggle navigation menu" aria-expanded="false">
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+            </button>
+
+            <ul class="nav-menu" role="menu">
+                <li role="none"><a href="/" role="menuitem">Home</a></li>
+                <li role="none"><a href="/instagram-puzzles.html" role="menuitem">Instagram Puzzles</a></li>
+                <li role="none"><a href="/website-puzzles.html" role="menuitem" class="active">Website Puzzles</a></li>
+                <li role="none"><a href="/#about" role="menuitem">About</a></li>
+                <li role="none"><a href="/#contact" role="menuitem">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <header class="page-header">
+        <div class="container">
+            <h1>Website Puzzles</h1>
+            <p>Exclusive brain teasers you won't find anywhere else</p>
+            <p class="solve-counter" id="website-solve-counter">Loading...</p>
+        </div>
+    </header>
+
+    <!-- Puzzles Section -->
+    <section class="section puzzles-section">
+        <div class="container">
+            <div id="website-puzzles-list" class="puzzle-list">
+                <!-- Dynamically loaded via JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 Puzzle Root. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="/js/navigation.js"></script>
+    <script src="/js/puzzles.js"></script>
+    <script>
+        // Load website puzzles
+        document.addEventListener('DOMContentLoaded', function() {
+            loadWebsitePuzzles();
+        });
+    </script>
+</body>
+</html>

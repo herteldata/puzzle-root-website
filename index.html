@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Puzzle Root - Engaging puzzles and brain teasers designed by a passionate puzzle creator. Solve Instagram puzzles and exclusive website challenges.">
+    <meta name="keywords" content="puzzles, brain teasers, word puzzles, logic puzzles, puzzle design">
+    <meta name="author" content="Puzzle Root">
+
+    <!-- Open Graph / Social Media -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Puzzle Root - Creative Puzzle Design">
+    <meta property="og:description" content="Engaging puzzles and brain teasers. Test your problem-solving skills!">
+    <meta property="og:image" content="/images/brand/logo.png">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Puzzle Root - Creative Puzzle Design">
+    <meta name="twitter:description" content="Engaging puzzles and brain teasers. Test your problem-solving skills!">
+
+    <title>Puzzle Root - Creative Puzzle Design</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/animations.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" role="navigation" aria-label="Main navigation">
+        <div class="nav-container">
+            <a href="/" class="logo-link">
+                <img src="/images/brand/logo.png" alt="Puzzle Root Logo" class="logo">
+            </a>
+
+            <button class="hamburger" aria-label="Toggle navigation menu" aria-expanded="false">
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+            </button>
+
+            <ul class="nav-menu" role="menu">
+                <li role="none"><a href="/" role="menuitem" class="active">Home</a></li>
+                <li role="none"><a href="/instagram-puzzles.html" role="menuitem">Instagram Puzzles</a></li>
+                <li role="none"><a href="/website-puzzles.html" role="menuitem">Website Puzzles</a></li>
+                <li role="none"><a href="#about" role="menuitem">About</a></li>
+                <li role="none"><a href="#contact" role="menuitem">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero">
+        <div class="container">
+            <h1 class="hero-title">Welcome to Puzzle Root</h1>
+            <p class="hero-subtitle">Exercise your mind with engaging puzzles and creative challenges</p>
+        </div>
+    </header>
+
+    <!-- Recent Puzzles Section -->
+    <section class="section recent-puzzles">
+        <div class="container">
+            <h2 class="section-title">Recent Puzzles</h2>
+            <p class="solve-counter" id="home-solve-counter">You've solved 0 puzzles</p>
+            <div id="recent-puzzles-list" class="puzzle-list">
+                <!-- Dynamically loaded via JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="section about-section" id="about">
+        <div class="container">
+            <h2 class="section-title">About Puzzle Root</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>The Puzzles</h3>
+                    <p>
+                        Puzzle Root creates engaging, thoughtful puzzles that challenge your mind and bring joy to problem-solving.
+                        From word puzzles to visual brain teasers, each puzzle is carefully crafted to provide that perfect "aha!" moment.
+                    </p>
+
+                    <h3>The Designer</h3>
+                    <p>
+                        With a background in product management and a passion for creative problem-solving, Puzzle Root combines
+                        analytical thinking with playful design. Every puzzle is an invitation to see the world from a different angle,
+                        to find patterns in chaos, and to experience the satisfaction of discovery.
+                    </p>
+
+                    <p>
+                        Whether you're a puzzle enthusiast or just looking for a fun mental challenge, there's something here for you.
+                        Solve puzzles from our Instagram feed or try exclusive website-only challenges. Track your progress and see
+                        how many you can solve!
+                    </p>
+                </div>
+            </div>
+
+            <!-- Social Links -->
+            <div class="social-links">
+                <h3>Follow Along</h3>
+                <a href="https://www.instagram.com/puzzle_root/" target="_blank" rel="noopener noreferrer" class="social-link">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                        <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                    </svg>
+                    @puzzle_root
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="section contact-section" id="contact">
+        <div class="container">
+            <h2 class="section-title">Get in Touch</h2>
+            <p class="section-description">Have a question or want to commission a custom puzzle? Send me a message!</p>
+
+            <form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" class="contact-form">
+                <!-- Honeypot for spam prevention -->
+                <input type="hidden" name="form-name" value="contact">
+                <p class="hidden">
+                    <label>Don't fill this out if you're human: <input name="bot-field" /></label>
+                </p>
+
+                <div class="form-group">
+                    <label for="name">Name *</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email *</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="message">Message *</label>
+                    <textarea id="message" name="message" rows="5" required></textarea>
+                </div>
+
+                <button type="submit" class="btn btn-primary">Send Message</button>
+
+                <div class="form-status" id="form-status" aria-live="polite"></div>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 Puzzle Root. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="/js/navigation.js"></script>
+    <script src="/js/puzzles.js"></script>
+    <script>
+        // Load recent puzzles on home page
+        document.addEventListener('DOMContentLoaded', function() {
+            loadRecentPuzzles();
+            updateSolveCounter('home-solve-counter');
+        });
+    </script>
+</body>
+</html>
