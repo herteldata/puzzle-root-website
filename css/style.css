@@ -540,6 +540,16 @@ a:focus {
     margin-bottom: var(--spacing-sm);
 }
 
+@media (max-width: 768px) {
+    .answer-input-group {
+        flex-direction: column;
+    }
+
+    .answer-input-group .btn {
+        width: 100%;
+    }
+}
+
 .answer-input {
     flex: 1;
     padding: var(--spacing-sm);
