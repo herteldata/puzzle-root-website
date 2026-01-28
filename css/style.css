@@ -371,6 +371,7 @@ a:focus {
     gap: var(--spacing-md);
     overflow-x: auto;
     scroll-behavior: smooth;
+    scroll-snap-type: x mandatory;
     scrollbar-width: none; /* Firefox */
     -ms-overflow-style: none; /* IE/Edge */
 }
@@ -380,8 +381,14 @@ a:focus {
 }
 
 .puzzle-carousel .puzzle-card {
-    flex: 0 0 min(400px, 90vw);
+    flex: 0 0 min(400px, calc(100vw - 8rem));
     scroll-snap-align: center;
+}
+
+@media (max-width: 768px) {
+    .puzzle-carousel .puzzle-card {
+        flex: 0 0 calc(100vw - 4rem);
+    }
 }
 
 .carousel-button {
