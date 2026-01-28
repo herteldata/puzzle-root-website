@@ -349,7 +349,7 @@ a:focus {
 /* Carousel for home page */
 .puzzle-carousel {
     position: relative;
-    overflow: hidden;
+    overflow: visible;
     padding: 0 var(--spacing-xl);
 }
 
