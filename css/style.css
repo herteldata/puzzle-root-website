@@ -137,12 +137,12 @@ a:focus {
    =================================== */
 
 .navbar {
-    background-color: var(--color-white);
+    background-color: var(--color-brand-green);
     box-shadow: var(--shadow-sm);
     position: sticky;
     top: 0;
     z-index: 1000;
-    border-bottom: 2px solid var(--color-sage);
+    border-bottom: 2px solid var(--color-brand-green);
 }
 
 .nav-container {
@@ -186,7 +186,7 @@ a:focus {
 .hamburger-line {
     width: 30px;
     height: 3px;
-    background-color: var(--color-navy);
+    background-color: var(--color-white);
     transition: all var(--transition-speed) ease-in-out;
     border-radius: 2px;
 }
@@ -267,6 +267,13 @@ a:focus {
     .nav-menu a {
         font-size: var(--font-size-base);
         padding: var(--spacing-xs) var(--spacing-sm);
+        color: var(--color-white);
+    }
+
+    .nav-menu a:hover,
+    .nav-menu a.active {
+        background-color: rgba(255, 255, 255, 0.2);
+        color: var(--color-white);
     }
 }
 
@@ -339,6 +346,86 @@ a:focus {
     gap: var(--spacing-lg);
 }
 
+/* Carousel for home page */
+.puzzle-carousel {
+    position: relative;
+    overflow: hidden;
+    padding: 0 var(--spacing-xl);
+}
+
+.puzzle-carousel-track {
+    display: flex;
+    gap: var(--spacing-md);
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE/Edge */
+}
+
+.puzzle-carousel-track::-webkit-scrollbar {
+    display: none; /* Chrome/Safari */
+}
+
+.puzzle-carousel .puzzle-card {
+    flex: 0 0 min(400px, 90vw);
+    scroll-snap-align: center;
+}
+
+.carousel-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: var(--color-brand-green);
+    color: var(--color-white);
+    border: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: var(--shadow-md);
+    transition: all var(--transition-speed);
+    z-index: 10;
+}
+
+.carousel-button:hover {
+    background-color: #447a48;
+    transform: translateY(-50%) scale(1.1);
+}
+
+.carousel-button:focus {
+    outline: 3px solid var(--color-amber);
+    outline-offset: 2px;
+}
+
+.carousel-button.prev {
+    left: 0;
+}
+
+.carousel-button.next {
+    right: 0;
+}
+
+.carousel-button:disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+}
+
+@media (max-width: 768px) {
+    .puzzle-carousel {
+        padding: 0;
+    }
+
+    .carousel-button {
+        width: 32px;
+        height: 32px;
+        font-size: 1.2rem;
+    }
+}
+
 .puzzle-card {
     background-color: var(--color-white);
     border: 2px solid var(--color-sage);
@@ -367,6 +454,8 @@ a:focus {
 .puzzle-image {
     width: 100%;
     height: auto;
+    max-height: 60vh;
+    object-fit: contain;
     display: block;
 }
 

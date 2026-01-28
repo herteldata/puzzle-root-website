@@ -65,9 +65,12 @@
     <section class="section recent-puzzles">
         <div class="container">
             <h2 class="section-title">Recent Puzzles</h2>
-            <p class="solve-counter" id="home-solve-counter">You've solved 0 puzzles</p>
-            <div id="recent-puzzles-list" class="puzzle-list">
-                <!-- Dynamically loaded via JavaScript -->
+            <div class="puzzle-carousel">
+                <button class="carousel-button prev" aria-label="Previous puzzle">&larr;</button>
+                <div id="recent-puzzles-list" class="puzzle-carousel-track">
+                    <!-- Dynamically loaded via JavaScript -->
+                </div>
+                <button class="carousel-button next" aria-label="Next puzzle">&rarr;</button>
             </div>
         </div>
     </section>
@@ -115,7 +118,7 @@
     <section class="section contact-section" id="contact">
         <div class="container">
             <h2 class="section-title">Get in Touch</h2>
-            <p class="section-description">Have a question or want to commission a custom puzzle? Send me a message!</p>
+            <p class="section-description">Have a question or feedback? Need hints? Send me a message!</p>
 
             <form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" class="contact-form">
                 <!-- Honeypot for spam prevention -->
@@ -160,7 +163,38 @@
         // Load recent puzzles on home page
         document.addEventListener('DOMContentLoaded', function() {
             loadRecentPuzzles();
-            updateSolveCounter('home-solve-counter');
+
+            // Setup carousel navigation
+            const track = document.querySelector('.puzzle-carousel-track');
+            const prevBtn = document.querySelector('.carousel-button.prev');
+            const nextBtn = document.querySelector('.carousel-button.next');
+
+            if (track && prevBtn && nextBtn) {
+                prevBtn.addEventListener('click', function() {
+                    const cardWidth = track.querySelector('.puzzle-card')?.offsetWidth || 0;
+                    const gap = 16; // matches var(--spacing-md)
+                    track.scrollBy({ left: -(cardWidth + gap), behavior: 'smooth' });
+                });
+
+                nextBtn.addEventListener('click', function() {
+                    const cardWidth = track.querySelector('.puzzle-card')?.offsetWidth || 0;
+                    const gap = 16;
+                    track.scrollBy({ left: cardWidth + gap, behavior: 'smooth' });
+                });
+
+                // Update button states based on scroll position
+                function updateButtons() {
+                    const scrollLeft = track.scrollLeft;
+                    const maxScroll = track.scrollWidth - track.clientWidth;
+
+                    prevBtn.disabled = scrollLeft <= 0;
+                    nextBtn.disabled = scrollLeft >= maxScroll - 1;
+                }
+
+                track.addEventListener('scroll', updateButtons);
+                // Initial check after puzzles load
+                setTimeout(updateButtons, 500);
+            }
         });
     </script>
 </body>

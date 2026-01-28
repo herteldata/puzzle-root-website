@@ -302,6 +302,9 @@ async function loadInstagramPuzzles() {
             return;
         }
 
+        // Sort by date (newest first)
+        puzzles.sort((a, b) => new Date(b.datePublished) - new Date(a.datePublished));
+
         // Render puzzles
         container.innerHTML = puzzles.map(puzzle => createPuzzleCard(puzzle, 'instagram')).join('');
 
@@ -336,6 +339,9 @@ async function loadWebsitePuzzles() {
             container.innerHTML = '<p class="text-center">No website puzzles yet. Check back soon!</p>';
             return;
         }
+
+        // Sort by date (newest first)
+        puzzles.sort((a, b) => new Date(b.datePublished) - new Date(a.datePublished));
 
         // Render puzzles
         container.innerHTML = puzzles.map(puzzle => createPuzzleCard(puzzle, 'website')).join('');
@@ -377,8 +383,8 @@ async function loadRecentPuzzles() {
             ...webPuzzles.map(p => ({ ...p, type: 'website' }))
         ].sort((a, b) => new Date(b.datePublished) - new Date(a.datePublished));
 
-        // Take only the 6 most recent
-        const recentPuzzles = allPuzzles.slice(0, 6);
+        // Take only the 5 most recent
+        const recentPuzzles = allPuzzles.slice(0, 5);
 
         if (recentPuzzles.length === 0) {
             container.innerHTML = '<p class="text-center">No puzzles yet. Check back soon!</p>';
