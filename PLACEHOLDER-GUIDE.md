@@ -31,7 +31,7 @@ Update the tagline to match your brand voice.
 Replace with your actual story, background, and puzzle design philosophy.
 
 ### 2. Meta Descriptions (all HTML files)
-
+### NOT DONE YET
 **index.html** (line 7)
 ```html
 <meta name="description" content="Puzzle Root - Engaging puzzles and brain teasers designed by a passionate puzzle creator. Solve Instagram puzzles and exclusive website challenges.">

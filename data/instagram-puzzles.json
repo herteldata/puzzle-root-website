@@ -1,29 +1,29 @@
 [
   {
-    "id": "ig-001",
-    "title": "Instagram Puzzle #1",
-    "imageUrl": "https://via.placeholder.com/600x600/387a3d/ffffff?text=Puzzle+1",
-    "caption": "Can you solve this puzzle? Look closely at the image and find the hidden word!",
-    "answer": "example answer",
-    "instagramUrl": "https://www.instagram.com/p/YOUR_POST_ID/",
-    "datePublished": "2026-01-20"
+    "id": "ig-003",
+    "title": "Instagram Puzzle #3",
+    "imageUrl": "https://scontent-ord5-1.cdninstagram.com/v/t39.30808-6/557631993_849859818203469_6922964837437240608_n.png?_nc_cat=111&ig_cache_key=Mzc0MTg2MjY5ODAwODU1NjY3OQ%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6InhwaWRzLjEwODB4MTM1MC5zZHIuQzMifQ%3D%3D&_nc_ohc=qZJEdAJPSnwQ7kNvwGKTv2G&_nc_oc=AdkU4wCltyrMn6m9YmFREVwRWkSmmlc6li0sYOJviFCtDxs2LfzkBFAdOQB0y4ycVYExWZWCZl7Gx_cme0xB8rw2&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent-ord5-1.cdninstagram.com&_nc_gid=LmdE1jqbA9vX5VBYtP5dNg&oh=00_AfrqlV2N0BJjxhNt2ylen6bFBjFjK8OoVGeP2kPK79odCw&oe=697FFB2C",
+    "caption": "Puzzle Solution: 1 word. WINGS",
+    "answer": "WINGS",
+    "instagramUrl": "https://www.instagram.com/p/DPtxExxFbSH/?utm_source=ig_web_copy_link&igsh=NTc4MTIwNjQ2YQ==",
+    "datePublished": "2025-10-12"
   },
   {
     "id": "ig-002",
     "title": "Instagram Puzzle #2",
-    "imageUrl": "https://via.placeholder.com/600x600/387a3d/ffffff?text=Puzzle+2",
-    "caption": "Another brain teaser for you! What's the pattern here?",
-    "answer": "pattern",
-    "instagramUrl": "https://www.instagram.com/p/YOUR_POST_ID/",
-    "datePublished": "2026-01-18"
+    "imageUrl": "https://scontent-ord5-3.cdninstagram.com/v/t39.30808-6/558311778_849858121536972_1621410093580572110_n.png?_nc_cat=109&ig_cache_key=Mzc0MTEzODA2NzYyNjM3Njk3NA%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6InhwaWRzLjEwODB4MTM1MC5zZHIuQzMifQ%3D%3D&_nc_ohc=En5WfsVevYYQ7kNvwERKNbv&_nc_oc=AdkF18KRmichwddr9JtfyInBN_YIEpzdz6vlYSvRZIf2GTKWw5pINHgvZ7l64hRXbwlGZwndDTYv96XcvFXBUKS8&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent-ord5-3.cdninstagram.com&_nc_gid=RqVf3DpW2QFH-uJ7BFuOIw&oh=00_AfqTQ6kGRMfZzmnsJupojyH4EXh822BwvRT6NMX04yzQkw&oe=69801285",
+    "caption": "Puzzle Solution: 1 word. BUSH",
+    "answer": "BUSH",
+    "instagramUrl": "https://www.instagram.com/p/DPrMUBIj78O/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==",
+    "datePublished": "2025-10-11"
   },
   {
-    "id": "ig-003",
-    "title": "Instagram Puzzle #3",
-    "imageUrl": "https://via.placeholder.com/600x600/387a3d/ffffff?text=Puzzle+3",
-    "caption": "Weekend puzzle challenge! Can you crack the code?",
-    "answer": "solution",
-    "instagramUrl": "https://www.instagram.com/p/YOUR_POST_ID/",
-    "datePublished": "2026-01-15"
+    "id": "ig-001",
+    "title": "Instagram Puzzle #1",
+    "imageUrl": "https://scontent-ord5-3.cdninstagram.com/v/t39.30808-6/557541466_849851614870956_2244111414104516746_n.png?_nc_cat=106&ig_cache_key=MzczODIzODc2NjMxOTE1Njk4Nw%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6InhwaWRzLjEwODB4MTM1MC5zZHIuQzMifQ%3D%3D&_nc_ohc=EDxyOqqmo6IQ7kNvwGWwA5p&_nc_oc=Admz-ysLyF7zP2Rg2iPxBzv3_rBf3HZQokjtOmO8FVOwh1VdVO4SYOLRUNJyFR3CFcHxZwSIAu5HCRDPnDsyE-rp&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent-ord5-3.cdninstagram.com&_nc_gid=RqVf3DpW2QFH-uJ7BFuOIw&oh=00_AfrBf4T6Dbzf-9v7Ab49hCVYl5z7HJWM6NWkzKy1oTgWdg&oe=697FF2DD",
+    "caption": "Puzzle Solution: 1 word. SEASON",
+    "answer": "SEASON",
+    "instagramUrl": "https://www.instagram.com/p/DPg5FoYDD77/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==",
+    "datePublished": "2025-10-07"
   }
 ]

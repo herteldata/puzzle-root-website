@@ -1,18 +1,18 @@
 [
   {
     "id": "web-001",
-    "title": "The Hidden Message",
-    "imageUrl": "/images/puzzles/placeholder-1.jpg",
-    "description": "Look carefully at the arrangement of letters below. There's a hidden message waiting to be discovered. What is it?",
-    "answer": "hidden message",
-    "datePublished": "2026-01-25"
+    "title": "Web Puzzle #1",
+    "imageUrl": "/images/puzzles/placeholder-1.png",
+    "description": "Some Placeholder Text answer Check It Out",
+    "answer": "Check It Out",
+    "datePublished": "2026-01-27"
   },
   {
     "id": "web-002",
-    "title": "Number Sequence Mystery",
-    "imageUrl": "/images/puzzles/placeholder-2.jpg",
-    "description": "Study this sequence of numbers: 2, 4, 8, 16, 32... What comes next and why?",
-    "answer": "64",
-    "datePublished": "2026-01-22"
+    "title": "Web Puzzle #2",
+    "imageUrl": "/images/puzzles/placeholder-2.png",
+    "description": "More Placeholder Text answer 789",
+    "answer": "789",
+    "datePublished": "2026-01-28"
   }
 ]
