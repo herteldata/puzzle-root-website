@@ -316,7 +316,7 @@ a:focus {
     margin-bottom: var(--spacing-xs);
 }
 
-.page-header p {
+.page-header p:not(.solve-counter) {
     color: var(--color-gray-medium);
     margin-bottom: var(--spacing-xs);
 }
