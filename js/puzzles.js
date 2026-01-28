@@ -229,7 +229,7 @@ function createPuzzleCard(puzzle, type) {
     const solvedBadge = isSolved ? '<div class="solved-badge"><span class="checkmark">✓</span> Solved</div>' : '';
 
     let card = `
-        <article class="puzzle-card ${solvedClass} fade-in" data-puzzle-id="${puzzle.id}">
+        <article class="puzzle-card ${solvedClass} fade-in" data-puzzle-id="${puzzle.id}" id="${puzzle.id}">
             <div class="puzzle-image-wrapper">
                 <img src="${puzzle.imageUrl}" alt="${puzzle.title}" class="puzzle-image" loading="lazy">
                 ${solvedBadge}
@@ -396,6 +396,7 @@ async function loadRecentPuzzles() {
 
         // Attach event listeners
         attachFormListeners(recentPuzzles);
+        attachCarouselCardClickHandlers(recentPuzzles);
     } catch (error) {
         console.error('Error loading recent puzzles:', error);
         container.innerHTML = '<p class="text-center error">Error loading puzzles. Please try again later.</p>';
@@ -414,6 +415,33 @@ function attachFormListeners(puzzles) {
 
         if (puzzle) {
             form.addEventListener('submit', (event) => handleAnswerSubmit(event, puzzle));
+        }
+    });
+}
+
+/**
+ * Attach click handlers to carousel cards for navigation
+ * @param {Array} puzzles - Array of puzzle objects with type property
+ */
+function attachCarouselCardClickHandlers(puzzles) {
+    const carouselCards = document.querySelectorAll('.puzzle-carousel-track .puzzle-card');
+    carouselCards.forEach(card => {
+        const puzzleId = card.getAttribute('data-puzzle-id');
+        const puzzle = puzzles.find(p => p.id === puzzleId);
+
+        if (puzzle) {
+            // Make the card clickable (except for form elements)
+            card.style.cursor = 'pointer';
+            card.addEventListener('click', (event) => {
+                // Don't navigate if clicking on form elements
+                if (event.target.closest('.answer-form')) {
+                    return;
+                }
+
+                // Navigate to the appropriate page with hash
+                const page = puzzle.type === 'instagram' ? 'instagram-puzzles.html' : 'website-puzzles.html';
+                window.location.href = `/${page}#${puzzle.id}`;
+            });
         }
     });
 }

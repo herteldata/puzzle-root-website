@@ -383,6 +383,12 @@ a:focus {
 .puzzle-carousel .puzzle-card {
     flex: 0 0 min(400px, calc(100vw - 8rem));
     scroll-snap-align: center;
+    cursor: pointer;
+    transition: transform var(--transition-speed);
+}
+
+.puzzle-carousel .puzzle-card:hover {
+    transform: translateY(-4px);
 }
 
 @media (max-width: 768px) {
