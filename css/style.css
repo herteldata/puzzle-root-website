@@ -344,6 +344,19 @@ a:focus {
     display: flex;
     flex-direction: column;
     gap: var(--spacing-lg);
+    align-items: center;
+}
+
+/* Constrain puzzle cards on Instagram/Website puzzle pages */
+.puzzle-list .puzzle-card {
+    max-width: 60%;
+    width: 100%;
+}
+
+@media (max-width: 768px) {
+    .puzzle-list .puzzle-card {
+        max-width: 100%;
+    }
 }
 
 /* Carousel for home page */
