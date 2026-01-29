@@ -316,6 +316,9 @@ async function loadInstagramPuzzles() {
             const solved = getSolvedCount(puzzles.map(p => p.id));
             counter.textContent = `You've solved ${solved} of ${puzzles.length} Instagram puzzles`;
         }
+
+        // Scroll to puzzle if hash is present in URL
+        scrollToHashIfPresent();
     } catch (error) {
         console.error('Error loading Instagram puzzles:', error);
         container.innerHTML = '<p class="text-center error">Error loading puzzles. Please try again later.</p>';
@@ -354,9 +357,30 @@ async function loadWebsitePuzzles() {
             const solved = getSolvedCount(puzzles.map(p => p.id));
             counter.textContent = `You've solved ${solved} of ${puzzles.length} website puzzles`;
         }
+
+        // Scroll to puzzle if hash is present in URL
+        scrollToHashIfPresent();
     } catch (error) {
         console.error('Error loading website puzzles:', error);
         container.innerHTML = '<p class="text-center error">Error loading puzzles. Please try again later.</p>';
+    }
+}
+
+/**
+ * Scroll to puzzle if hash is present in URL
+ * Called after puzzles are loaded to handle direct links to specific puzzles
+ */
+function scrollToHashIfPresent() {
+    if (window.location.hash) {
+        const targetId = window.location.hash.substring(1); // Remove the # symbol
+        const targetElement = document.getElementById(targetId);
+
+        if (targetElement) {
+            // Small delay to ensure rendering is complete
+            setTimeout(() => {
+                targetElement.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }, 100);
+        }
     }
 }
 
