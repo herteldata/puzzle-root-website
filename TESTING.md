@@ -72,6 +72,17 @@ Complete this checklist before deploying the Puzzle Root website to production.
 - [ ] Solve counter is accurate across all pages
 - [ ] Progress persists in localStorage (check DevTools → Application → Local Storage)
 
+### Scheduled Publishing
+
+- [ ] Puzzles with future `datePublished` are hidden from regular view
+- [ ] Counters only count published puzzles (not future ones)
+- [ ] Preview mode (`?preview=true`) shows all puzzles including future ones
+- [ ] Preview mode works on Instagram puzzles page
+- [ ] Preview mode works on Website puzzles page
+- [ ] Preview mode works on Home page carousel
+- [ ] Published puzzles appear automatically after their scheduled time
+- [ ] Puzzle with past datetime is immediately visible
+
 ### Contact Form
 
 **Note**: Full testing requires Netlify deployment. For local testing:

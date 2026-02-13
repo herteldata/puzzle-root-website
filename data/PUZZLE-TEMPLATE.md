@@ -50,10 +50,59 @@ Answers are matched flexibly:
 - **Whitespace ignored**: "the answer", "theanswer", " the  answer " all match
 - Keep answers simple and avoid special characters when possible
 
+## Scheduled Publishing
+
+Puzzles automatically appear on the site when their `datePublished` datetime arrives. This allows you to pre-schedule puzzles without manual intervention.
+
+### DateTime Format
+
+**Simple date (appears at midnight):**
+```json
+"datePublished": "2026-02-20"
+```
+
+**Scheduled time (recommended):**
+```json
+"datePublished": "2026-02-20T09:00:00-06:00"
+```
+
+**Format breakdown:**
+- `2026-02-20` - Date (YYYY-MM-DD)
+- `T` - Separator between date and time
+- `09:00:00` - Time in 24-hour format (HH:MM:SS)
+- `-06:00` - Central Standard Time offset
+- `-05:00` - Use during Central Daylight Time (roughly March-November)
+
+**Examples:**
+```json
+"datePublished": "2026-02-20T09:00:00-06:00"  // Feb 20 at 9:00 AM CST
+"datePublished": "2026-07-15T12:30:00-05:00"  // Jul 15 at 12:30 PM CDT
+"datePublished": "2026-12-25T08:00:00-06:00"  // Dec 25 at 8:00 AM CST
+```
+
+### How It Works
+
+- Puzzles with future `datePublished` are **completely hidden** from users
+- They don't appear in puzzle lists or counters
+- They automatically become visible when the scheduled time arrives
+- No manual updates or deployments needed after initial commit
+
+### Preview Mode (Testing)
+
+To see all puzzles including unpublished ones, add `?preview=true` to any URL:
+
+- `http://localhost:8000/instagram-puzzles.html?preview=true`
+- `http://localhost:8000/website-puzzles.html?preview=true`
+- `http://localhost:8000/?preview=true`
+
+This lets you test future puzzles before they go live.
+
 ## Tips
 
 - Use unique IDs (ig-001, ig-002 or web-001, web-002)
 - Keep answers lowercase in the JSON for consistency
-- Date format: YYYY-MM-DD (e.g., 2026-01-27)
+- Schedule puzzles to match your Instagram posting schedule
+- Add all puzzles at once and commit - they'll appear automatically
+- Use preview mode to verify puzzles look correct before they publish
 - Test your puzzle on the site after adding it
 - The most recent puzzles appear first on the home page

@@ -2,17 +2,57 @@
   {
     "id": "web-001",
     "title": "Web Puzzle #1",
-    "imageUrl": "/images/puzzles/placeholder-1.png",
-    "description": "Some Placeholder Text answer Check It Out",
-    "answer": "Check It Out",
-    "datePublished": "2026-01-27"
+    "imageUrl": "/images/puzzles/1_1.jpeg",
+    "description": "I found a bunch of old nostalgia / memorabilia I had packed up when we moved into the new house and only just now discovered again. \n This first one is a map I made of a treasure hunt my dad sent me on—clearly part of me beginning to be interested in mysteries and puzzles. He was always doing that, making up little games like this for me. I mean, I understand it now: if it means he could get a few minutes to get something done and make me smile, totally worth the effort. I vaguely remember his clues being super hard for this one, like it took me forever to figure out the ant hill part. Looks like my mom helped me label it. Not sure why she didn’t understand icky bush! Ollie ate those berries and threw up that time. Clearly a core memory for me. \n What was my dad trying to do? [One word]",
+    "answer": "Mislead",
+    "datePublished": "2026-02-12T10:00:00-06:00"
   },
   {
     "id": "web-002",
     "title": "Web Puzzle #2",
-    "imageUrl": "/images/puzzles/placeholder-2.png",
-    "description": "More Placeholder Text answer 789",
-    "answer": "789",
-    "datePublished": "2026-01-28"
+    "imageUrl": "/images/puzzles/1_2.jpeg",
+    "description": "Oh, this was from that terrible farce we put on junior year, Three Brothers. The student director, Alex, kept changing his mind about the blocking so I just grabbed a piece of cardboard and put it right behind the stage door so I could put the new one on there and know where I was going. I should have signed up to direct, I just didn’t have the confidence. Evie told me I should go for it, even though she was dating Alex. And being told what to do as an actor was just easier, easier to go with the flow. Story of my life, especially then, just trying to keep my head down and figure out where I fit. Of course now I see I wasn’t the only one. \n What did we all have back then? [One word]",
+    "answer": "Angst",
+    "datePublished": "2026-02-21"
+  },
+  {
+    "id": "web-003",
+    "title": "Web Puzzle #3",
+    "imageUrl": "/images/puzzles/1_3.jpeg",
+    "description": "Yeesh, this cuts to the core—Dad and I were playing through this video game together before I left for college and hating it, and in the middle of it I argued I could design it better, use the central idea but make it more fun. So he said “prove it” and I ended up drawing this map. My idea was you had to ultimately get to the docks, build your own sailboat, and leave. He seemed angry, sad, told me it doesn’t work that way. I never did anything with this because I didn’t want to think about him like that. Yet again, now I get it. I dread the day Jack leaves the house, far away as it might be. \n What is basically every video game map, and what is each person not? [One word]",
+    "answer": "Island",
+    "datePublished": "2026-02-22"
+  },
+  {
+    "id": "web-004",
+    "title": "Web Puzzle #4",
+    "imageUrl": "/images/puzzles/1_4.jpeg",
+    "description": "Evie’s map card from when I visited her at the top of second quarter sophomore year—after knowing for her for so long, it felt like this second part of our lives was starting. And it was. We reconnected that previous summer, and we realized it was always kind of there. Or she did, and I was able to finally put it into words that are about feelings and not logic. People are confusing, they’re puzzles I have a hard time solving or even figuring out a way into, but she just wasn’t. She never has been. Glad I found this again so I can show her. \n What is it when two parts fit next to each other so well? [One word]",
+    "answer": "Diptych",
+    "datePublished": "2026-02-23"
+  },
+  {
+    "id": "web-005",
+    "title": "Web Puzzle #5",
+    "imageUrl": "/images/puzzles/1_5.jpeg",
+    "description": "Why would I save this for last, after how that job ended? I liked some of those people, but this was like “gotta move Alan to that vacant desk, but he can’t be next to Lily, so she needs to take Julio’s desk, who is moving into the conference room, which is why we have to move the table in the first place.” I mean, talk about rearranging deck chairs. Ugh, I feel myself getting pulled back into it, even though I’m not even working there any more. It’s still raw. Yes, it was stagnant, and yes I was looking for a way out, but I wish I left on my own terms. Still. \n What do I feel some work does to us? [One word]",
+    "answer": "Entomb",
+    "datePublished": "2026-02-24"
+  },
+  {
+    "id": "web-006",
+    "title": "Web Puzzle #6",
+    "imageUrl": "/images/puzzles/1_6.jpeg",
+    "description": "Time to stop dwelling on the past and head out to meet Evie and Jack by the fort at the water at 6 for our picnic—Jack was so happy when he got to tell me I was wrong that the fort wasn’t a hexagon when I made him a map. I’ll go sit by the water and do a bit of reading or writing before they arrive. Jack was concerned he wouldn’t know how to find me when they got there, so I made him this when we were drawing this morning. He was so happy. It’s a sort of treasure map, to his dad and a picnic at the end. It felt good, to make a map again. For him. And for me, I suppose. Also, I started to note the snack shack and realized that would be a mistake to tell him, as he never let Evie make it over to me if he had a map to snacks. \n Where is my gaze focused today? [One word]",
+    "answer": "Navel",
+    "datePublished": "2026-02-25"
+  },
+  {
+    "id": "web-007",
+    "title": "Web Puzzle #7 META",
+    "imageUrl": "/images/puzzles/source.gif",
+    "description": "Sitting here journalling by the water, watching the sailboats and waves and horizon for some sort of signal, some morsel of insight into what I should do. It feels selfish to want to do something new like this, to do something risky when I’m so risk-averse and have a family who I’m responsible to. And yet. Making a map for Jack, thinking about things that I used to adore and be excited by, being in charge of something I create and control. It feels like real positive movement, like something I have to move towards. Maybe the universe can give me a sign. \n What are the signs leading me to? [Two words]",
+    "answer": "Maiden Voyage",
+    "datePublished": "2026-02-26"
   }
 ]

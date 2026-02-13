@@ -7,6 +7,32 @@
 const STORAGE_KEY = 'puzzleRootProgress';
 
 /**
+ * Check if preview mode is enabled via URL parameter
+ * @returns {boolean} True if ?preview=true is in URL
+ */
+function isPreviewMode() {
+    const urlParams = new URLSearchParams(window.location.search);
+    return urlParams.get('preview') === 'true';
+}
+
+/**
+ * Check if a puzzle should be visible based on publish date
+ * @param {Object} puzzle - Puzzle object with datePublished field
+ * @returns {boolean} True if puzzle should be shown
+ */
+function isPuzzlePublished(puzzle) {
+    // In preview mode, show all puzzles
+    if (isPreviewMode()) {
+        return true;
+    }
+
+    // Otherwise, only show if publish date/time has passed
+    const publishDate = new Date(puzzle.datePublished);
+    const now = new Date();
+    return publishDate <= now;
+}
+
+/**
  * Get puzzle progress from localStorage
  * @returns {Object} Progress data with puzzle IDs as keys
  */
@@ -295,7 +321,10 @@ async function loadInstagramPuzzles() {
 
     try {
         const response = await fetch('/data/instagram-puzzles.json');
-        const puzzles = await response.json();
+        let puzzles = await response.json();
+
+        // Filter to only show published puzzles (unless in preview mode)
+        puzzles = puzzles.filter(isPuzzlePublished);
 
         if (puzzles.length === 0) {
             container.innerHTML = '<p class="text-center">No Instagram puzzles yet. Check back soon!</p>';
@@ -336,7 +365,10 @@ async function loadWebsitePuzzles() {
 
     try {
         const response = await fetch('/data/website-puzzles.json');
-        const puzzles = await response.json();
+        let puzzles = await response.json();
+
+        // Filter to only show published puzzles (unless in preview mode)
+        puzzles = puzzles.filter(isPuzzlePublished);
 
         if (puzzles.length === 0) {
             container.innerHTML = '<p class="text-center">No website puzzles yet. Check back soon!</p>';
@@ -398,8 +430,12 @@ async function loadRecentPuzzles() {
             fetch('/data/website-puzzles.json')
         ]);
 
-        const igPuzzles = await igResponse.json();
-        const webPuzzles = await webResponse.json();
+        let igPuzzles = await igResponse.json();
+        let webPuzzles = await webResponse.json();
+
+        // Filter to only show published puzzles (unless in preview mode)
+        igPuzzles = igPuzzles.filter(isPuzzlePublished);
+        webPuzzles = webPuzzles.filter(isPuzzlePublished);
 
         // Combine and sort by date (newest first)
         const allPuzzles = [

@@ -118,6 +118,34 @@ See the TESTING.md file for a comprehensive testing checklist.
 - Keep answers simple to avoid user frustration
 - Store answers in lowercase in JSON for consistency
 
+### Scheduled Publishing
+
+Puzzles can be pre-scheduled to automatically appear at a specific date and time.
+
+**DateTime Format:**
+```json
+"datePublished": "2026-02-20T09:00:00-06:00"
+```
+
+**Format:**
+- Date: YYYY-MM-DD
+- Time: HH:MM:SS (24-hour format)
+- Timezone: `-06:00` (CST) or `-05:00` (CDT)
+
+**How it works:**
+- Puzzles with future dates are hidden from users
+- They automatically appear when the scheduled time arrives
+- Add all puzzles at once and commit - no manual updates needed
+- Perfect for matching Instagram post schedules
+
+**Preview Mode:**
+Add `?preview=true` to any URL to see unpublished puzzles:
+- `http://localhost:8000/instagram-puzzles.html?preview=true`
+- `http://localhost:8000/website-puzzles.html?preview=true`
+- `http://localhost:8000/?preview=true`
+
+Useful for testing before puzzles go live.
+
 ### Tips
 
 - Use unique IDs (ig-001, ig-002, etc.)

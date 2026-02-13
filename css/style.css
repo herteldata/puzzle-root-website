@@ -522,6 +522,7 @@ a:focus {
 .puzzle-description {
     color: var(--color-gray-medium);
     margin-bottom: var(--spacing-md);
+    white-space: pre-line;
 }
 
 .puzzle-link {
@@ -544,6 +545,15 @@ a:focus {
     display: flex;
     gap: var(--spacing-sm);
     margin-bottom: var(--spacing-sm);
+}
+
+/* Carousel cards always stack vertically due to width constraints */
+.puzzle-carousel .answer-input-group {
+    flex-direction: column;
+}
+
+.puzzle-carousel .answer-input-group .btn {
+    width: 100%;
 }
 
 @media (max-width: 768px) {
