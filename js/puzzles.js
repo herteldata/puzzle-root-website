@@ -6,6 +6,41 @@
 // LocalStorage key for puzzle progress
 const STORAGE_KEY = 'puzzleRootProgress';
 
+// Analytics: paste your Google Apps Script deployment URL here after setup
+const ANALYTICS_ENDPOINT = 'https://script.google.com/macros/s/AKfycbz1trDB8DjuFDKEfiTmBf5cDGtUcj3cpNO-_rpga9JbOJfCDs4FFVLdvHCXofyNa1lH/exec'; // e.g. 'https://script.google.com/macros/s/YOUR_ID/exec'
+
+// Track guess count per puzzle within this page session (resets on reload)
+const guessCounts = {};
+
+/**
+ * Detect which gallery page we're on
+ * @returns {string} 'instagram', 'website', or 'home'
+ */
+function getCurrentPage() {
+    const path = window.location.pathname;
+    if (path.includes('instagram')) return 'instagram';
+    if (path.includes('website')) return 'website';
+    return 'home';
+}
+
+/**
+ * Send a puzzle attempt event to Google Sheets via Apps Script
+ * Uses no-cors mode — response is opaque but the POST is delivered
+ * @param {Object} eventData - Event data to log
+ */
+function logPuzzleEvent(eventData) {
+    if (!ANALYTICS_ENDPOINT) return; // Silent no-op if not configured
+    fetch(ANALYTICS_ENDPOINT, {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(eventData)
+    }).catch(function(err) {
+        // Never throw — analytics must never break the puzzle experience
+        console.warn('Analytics logging failed (non-critical):', err);
+    });
+}
+
 /**
  * Check if preview mode is enabled via URL parameter
  * @returns {boolean} True if ?preview=true is in URL
@@ -171,10 +206,27 @@ function handleAnswerSubmit(event, puzzle) {
     // Disable submit button temporarily
     submitBtn.disabled = true;
 
+    // Track guess number for this puzzle in this session
+    if (!guessCounts[puzzle.id]) {
+        guessCounts[puzzle.id] = 0;
+    }
+    guessCounts[puzzle.id]++;
+    const currentGuessNumber = guessCounts[puzzle.id];
+
     if (checkAnswer(userAnswer, puzzle.answer)) {
         // Correct answer!
         markPuzzleSolved(puzzle.id);
         showFeedback(feedback, 'Correct! 🎉', 'success');
+
+        // Log correct solve event
+        logPuzzleEvent({
+            timestamp: new Date().toISOString(),
+            puzzleId: puzzle.id,
+            puzzleTitle: puzzle.title,
+            page: getCurrentPage(),
+            correct: true,
+            guessNumber: currentGuessNumber
+        });
 
         // Create celebration
         createConfetti();
@@ -193,6 +245,16 @@ function handleAnswerSubmit(event, puzzle) {
         showFeedback(feedback, 'Try Again', 'error');
         input.value = '';
         input.focus();
+
+        // Log incorrect guess event
+        logPuzzleEvent({
+            timestamp: new Date().toISOString(),
+            puzzleId: puzzle.id,
+            puzzleTitle: puzzle.title,
+            page: getCurrentPage(),
+            correct: false,
+            guessNumber: currentGuessNumber
+        });
 
         // Re-enable button after short delay
         setTimeout(() => {
@@ -247,17 +309,30 @@ function showSolvedState(puzzleCard, puzzle) {
  * Create HTML for a puzzle card
  * @param {Object} puzzle - Puzzle data
  * @param {string} type - 'instagram' or 'website'
+ * @param {boolean} enableLightbox - Whether to wrap image with GLightbox anchor (default: true)
  * @returns {string} HTML string
  */
-function createPuzzleCard(puzzle, type) {
+function createPuzzleCard(puzzle, type, enableLightbox = true) {
     const isSolved = isPuzzleSolved(puzzle.id);
     const solvedClass = isSolved ? 'solved' : '';
     const solvedBadge = isSolved ? '<div class="solved-badge"><span class="checkmark">✓</span> Solved</div>' : '';
 
+    const imageHtml = enableLightbox
+        ? `<a href="${puzzle.imageUrl}" class="glightbox" data-type="image" data-title="${puzzle.title}" aria-label="Expand image: ${puzzle.title}">
+                <img src="${puzzle.imageUrl}" alt="${puzzle.title}" class="puzzle-image" loading="lazy">
+                <span class="lightbox-hint" aria-hidden="true">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+                        <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+                        <line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/>
+                    </svg>
+                </span>
+           </a>`
+        : `<img src="${puzzle.imageUrl}" alt="${puzzle.title}" class="puzzle-image" loading="lazy">`;
+
     let card = `
         <article class="puzzle-card ${solvedClass} fade-in" data-puzzle-id="${puzzle.id}" id="${puzzle.id}">
             <div class="puzzle-image-wrapper">
-                <img src="${puzzle.imageUrl}" alt="${puzzle.title}" class="puzzle-image" loading="lazy">
+                ${imageHtml}
                 ${solvedBadge}
             </div>
             <div class="puzzle-content">
@@ -340,6 +415,11 @@ async function loadInstagramPuzzles() {
         // Attach event listeners to answer forms
         attachFormListeners(puzzles);
 
+        // Initialize lightbox for puzzle images
+        if (typeof GLightbox !== 'undefined') {
+            GLightbox({ selector: '.glightbox', touchNavigation: true, loop: false, zoomable: true });
+        }
+
         // Update solve counter
         if (counter) {
             const solved = getSolvedCount(puzzles.map(p => p.id));
@@ -383,6 +463,11 @@ async function loadWebsitePuzzles() {
 
         // Attach event listeners to answer forms
         attachFormListeners(puzzles);
+
+        // Initialize lightbox for puzzle images
+        if (typeof GLightbox !== 'undefined') {
+            GLightbox({ selector: '.glightbox', touchNavigation: true, loop: false, zoomable: true });
+        }
 
         // Update solve counter
         if (counter) {
@@ -451,8 +536,8 @@ async function loadRecentPuzzles() {
             return;
         }
 
-        // Render puzzles
-        container.innerHTML = recentPuzzles.map(puzzle => createPuzzleCard(puzzle, puzzle.type)).join('');
+        // Render puzzles (no lightbox on carousel — cards navigate to puzzle pages on click)
+        container.innerHTML = recentPuzzles.map(puzzle => createPuzzleCard(puzzle, puzzle.type, false)).join('');
 
         // Attach event listeners
         attachFormListeners(recentPuzzles);
@@ -561,3 +646,43 @@ async function updatePageSpecificCounters() {
         }
     }
 }
+
+/**
+ * Handle footer email signup form submission
+ * Shows thank-you message in place of form after successful submit
+ */
+function initFooterSignup() {
+    const form = document.getElementById('footer-signup-form');
+    const thanksMsg = document.getElementById('footer-signup-thanks');
+
+    if (!form || !thanksMsg) return;
+
+    form.addEventListener('submit', function(event) {
+        event.preventDefault();
+
+        const emailInput = form.querySelector('[name="email"]');
+        if (!emailInput || !emailInput.value.trim()) return;
+
+        const formData = new FormData(form);
+
+        fetch('/', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+            body: new URLSearchParams(formData).toString()
+        })
+        .then(function() {
+            form.style.display = 'none';
+            thanksMsg.style.display = 'block';
+        })
+        .catch(function(error) {
+            console.error('Email signup error:', error);
+            // Graceful fallback: let native form submit handle it
+            form.submit();
+        });
+    });
+}
+
+// Initialize footer signup on all pages
+document.addEventListener('DOMContentLoaded', function() {
+    initFooterSignup();
+});

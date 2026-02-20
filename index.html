@@ -152,7 +152,41 @@
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
-            <p>&copy; 2026 Puzzle Root. All rights reserved.</p>
+            <div class="footer-signup">
+                <h3 class="footer-signup-heading">Get notified when new puzzles drop</h3>
+                <form
+                    name="email-signup"
+                    method="POST"
+                    data-netlify="true"
+                    netlify-honeypot="bot-field"
+                    class="footer-signup-form"
+                    id="footer-signup-form"
+                >
+                    <input type="hidden" name="form-name" value="email-signup">
+                    <p class="hidden">
+                        <label>Don't fill this out if you're human: <input name="bot-field"></label>
+                    </p>
+                    <div class="footer-signup-row">
+                        <label for="footer-email" class="visually-hidden">Email address</label>
+                        <input
+                            type="email"
+                            id="footer-email"
+                            name="email"
+                            placeholder="your@email.com"
+                            required
+                            class="footer-email-input"
+                            autocomplete="email"
+                        >
+                        <button type="submit" class="btn btn-signup">Notify Me</button>
+                    </div>
+                    <p class="footer-privacy">Your email is used only to notify you of new puzzles. Anonymous puzzle attempt data is collected to improve future puzzles. Unsubscribe anytime.</p>
+                </form>
+                <div class="footer-signup-thanks" id="footer-signup-thanks" style="display:none;" role="status" aria-live="polite">
+                    <p>You're on the list! We'll let you know when new puzzles arrive.</p>
+                </div>
+            </div>
+            <hr class="footer-divider">
+            <p class="footer-copyright">&copy; 2026 Puzzle Root. All rights reserved.</p>
         </div>
     </footer>
 

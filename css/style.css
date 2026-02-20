@@ -768,13 +768,115 @@ a:focus {
 .footer {
     background-color: var(--color-navy);
     color: var(--color-white);
-    padding: var(--spacing-lg) 0;
+    padding: var(--spacing-xl) 0 var(--spacing-lg);
     text-align: center;
     margin-top: var(--spacing-xxl);
 }
 
-.footer p {
+.footer-copyright {
     margin: 0;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: var(--font-size-small);
+}
+
+.footer-divider {
+    border: none;
+    border-top: 1px solid rgba(255, 255, 255, 0.15);
+    margin: var(--spacing-lg) 0;
+}
+
+/* Email Signup Block */
+.footer-signup {
+    max-width: 480px;
+    margin: 0 auto;
+}
+
+.footer-signup-heading {
+    color: var(--color-white);
+    font-size: var(--font-size-large);
+    margin-bottom: var(--spacing-md);
+}
+
+.footer-signup-form {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-sm);
+}
+
+.footer-signup-row {
+    display: flex;
+    gap: var(--spacing-sm);
+}
+
+.footer-email-input {
+    flex: 1;
+    padding: var(--spacing-sm);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-radius: var(--border-radius);
+    background-color: rgba(255, 255, 255, 0.1);
+    color: var(--color-white);
+    font-family: var(--font-body);
+    font-size: var(--font-size-base);
+    transition: border-color var(--transition-speed);
+}
+
+.footer-email-input::placeholder {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.footer-email-input:focus {
+    outline: none;
+    border-color: var(--color-brand-green);
+    background-color: rgba(255, 255, 255, 0.15);
+}
+
+.btn-signup {
+    background-color: var(--color-brand-green);
+    color: var(--color-white);
+    padding: var(--spacing-sm) var(--spacing-md);
+    border: none;
+    border-radius: var(--border-radius);
+    font-family: var(--font-heading);
+    font-weight: 600;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: all var(--transition-speed);
+}
+
+.btn-signup:hover {
+    background-color: #447a48;
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+.footer-privacy {
+    font-size: var(--font-size-small);
+    color: rgba(255, 255, 255, 0.5);
+    margin: 0;
+    line-height: 1.4;
+}
+
+.footer-signup-thanks {
+    padding: var(--spacing-md);
+    background-color: rgba(56, 122, 61, 0.3);
+    border: 1px solid var(--color-brand-green);
+    border-radius: var(--border-radius);
+    color: var(--color-white);
+}
+
+.footer-signup-thanks p {
+    margin: 0;
+    font-weight: 500;
+}
+
+@media (max-width: 480px) {
+    .footer-signup-row {
+        flex-direction: column;
+    }
+
+    .btn-signup {
+        width: 100%;
+    }
 }
 
 /* ===================================
@@ -792,6 +894,19 @@ a:focus {
 .mb-sm { margin-bottom: var(--spacing-sm); }
 .mb-md { margin-bottom: var(--spacing-md); }
 .mb-lg { margin-bottom: var(--spacing-lg); }
+
+/* Visually hidden — accessible but not visible */
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
 
 /* ===================================
    Responsive Design
@@ -824,4 +939,49 @@ a:focus {
         animation-iteration-count: 1 !important;
         transition-duration: 0.01ms !important;
     }
+}
+
+/* ===================================
+   Image Lightbox (GLightbox)
+   =================================== */
+
+/* Prevent anchor from adding line-height gap below image */
+.puzzle-image-wrapper a.glightbox {
+    display: block;
+    line-height: 0;
+}
+
+/* Magnifier hint icon — appears on hover/focus */
+.lightbox-hint {
+    position: absolute;
+    bottom: var(--spacing-sm);
+    right: var(--spacing-sm);
+    background-color: rgba(26, 34, 56, 0.75);
+    color: var(--color-white);
+    border-radius: var(--border-radius);
+    padding: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity var(--transition-speed);
+    pointer-events: none;
+}
+
+.puzzle-image-wrapper:hover .lightbox-hint,
+.puzzle-image-wrapper a.glightbox:focus .lightbox-hint {
+    opacity: 1;
+}
+
+/* GLightbox brand color overrides */
+.glightbox-clean .gclose,
+.glightbox-clean .gnext,
+.glightbox-clean .gprev {
+    background-color: var(--color-brand-green);
+}
+
+.glightbox-clean .gclose svg path,
+.glightbox-clean .gnext svg path,
+.glightbox-clean .gprev svg path {
+    fill: var(--color-white);
 }
